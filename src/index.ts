@@ -6,6 +6,7 @@ export type {
   IToggle,
   IStorageProvider
 } from 'unleash-proxy-client'
+
 export {
   UnleashClient,
   LocalStorageProvider,

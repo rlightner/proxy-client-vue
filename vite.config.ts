@@ -6,6 +6,9 @@ const path = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ['vue-demi']
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
@@ -13,10 +16,11 @@ export default defineConfig({
       fileName: format => `index.${format}.js`
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'vue-demi'],
       output: {
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          'vue-demi': 'vueDemi',
         }
       },
       plugins: [
